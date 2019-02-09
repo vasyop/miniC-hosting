@@ -908,7 +908,7 @@ int sum(int n) {
             onChatClicked(
                 'Those 3 lines of code are called a "program". It\'s just a list of steps for the computer to follow.',
                 'After you write a program like that, some kind of machine has to read it and follow the steps.',
-                'That\'s the whole point of programming. Hopefully the machine can do it faster and/or cheapter than yourself.'
+                'That\'s the whole point of programming. Hopefully the machine can do it faster and/or chapter than yourself.'
             ),
             onChatClicked(
                 'You might be wondering what do I mean by "machine".',
@@ -925,7 +925,7 @@ int sum(int n) {
             onChatClicked(
                 'We use numbers and not something else because it\'s not that hard to make circuits that say, add two numbers.',
                 'I don\'t know about you though, but I would quickly lose my mind if I had to write numbers into a computer all day.',
-                'But here is an idea. Write a program in something that looks more like english than plain numbers (such as that C code over there).',
+                'But here is an idea. Write a program in something that looks more like English than plain numbers (such as that C code over there).',
                 'Then turn the C code into numbers, then give the numbers to the machine.'
             ),
             onFinishedChangeLockAndAdvance(makeLock(true, false, true, true)),
@@ -955,7 +955,7 @@ int sum(int n) {
             ),
             onChatClicked(
                 'How our machine (like most real processors) works is that when we give it the numbers and start it, it checks what number is at a certain memory address and depending on what\'s there, it then changes some other numbers. So many numbers! I know. The number that tells the machine what to do is called an "instruction".',
-                'For instance, there is a "PUSH" instrunction at address 10.004. Of course the machine has no idea what a "PUSH" is, it only knows what to do when it sees number 1002.',
+                'For instance, there is a "PUSH" instruction at address 10.004. Of course the machine has no idea what a "PUSH" is, it only knows what to do when it sees number 1002.',
             ),
             onChatClicked(
                 'For us though, it\'s easier to read and write "PUSH, PLUS, or RET" instead of "1002, 1021, or 1001"',
@@ -965,9 +965,9 @@ int sum(int n) {
             onChatClicked(
                 'So how does the machine know where to look for the instruction to execute?',
                 'One of the 4 registers is IP, or the "instruction pointer".',
-                'IP "points" to (holds the address of) the intruction that our machine will execute next.',
+                'IP "points" to (holds the address of) the instruction that our machine will execute next.',
             ),
-            onChatClicked('Right now, IP holds the number 10.000, the address of the first intruction generated from our C code.'),
+            onChatClicked('Right now, IP holds the number 10.000, the address of the first instruction generated from our C code.'),
             onFinishedSetHighLightAndAdvance(makeHighLights('adr10000')),
             onChatClicked(
                 'The address with a light blue background is always the number held by IP.',
@@ -1016,7 +1016,7 @@ int sum(int n) {
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
             onFinished(
                 'The machine just executed the first instruction (FSTART) with the argument 0, or FSTART 0 for short.',
-                'IP predictibly increased to 10.002 to prepare for the next instruction: PUSH.',
+                'IP predictably increased to 10.002 to prepare for the next instruction: PUSH.',
                 'SP and BP both moved to 30.001 and the value 30.000 was written at 30.001.'
             ),
             onFinished(
@@ -1052,7 +1052,7 @@ int sum(int n) {
             onStepClicked(' '),
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
             onFinished(
-                'MINUS was executed and the number (531) pointed by SP (30.003) was substracted from 132 found at address SP-1, then SP was decreased and the result of the substraction (-399) was stored at the new address where SP points: 30.002.',
+                'MINUS was executed and the number (531) pointed by SP (30.003) was subtracted from 132 found at address SP-1, then SP was decreased and the result of the subtraction (-399) was stored at the new address where SP points: 30.002.',
                 'Notice 531 is still at 30.003. There is no point in removing it. If we end up PUSHing something later, it will be overwritten anyway.',
                 '(click "Step" to execute the next instruction (RET) that will terminate the program)'
             ),
@@ -1072,7 +1072,7 @@ int sum(int n) {
             onFinishedChangeLockAndAdvance(makeLock(true, false, false, true)),
             onFinished(' '),
             onChatClicked(
-                'This seems like a pretty complicated way to substract two numbers.',
+                'This seems like a pretty complicated way to subtract two numbers.',
                 'It\'s this way because must also work with longer calculations such as (1-532*32)/53. You\'re about to see how.',
                 'Feel free free to compile and step through the small program we just covered until you are ready to move forward to the next section.',
             ),
