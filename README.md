@@ -34,3 +34,7 @@ Tutorial (for people with 0 programming experience) :
 * n global variables
   
 * mcros
+
+* delete / delete[]
+
+* function overloading
