@@ -1,12 +1,12 @@
 # What is it?
 
-A simple stack-based virtual machine that runs C++ (missing features below) in the browser.
+A simple stack-based virtual machine that runs C (missing features below) in the browser.
 
-It is also the beginning of an interactive tutorial that covers C++, how the VM works, and how the language is compiled.
+It is also the beginning of an interactive tutorial that covers C, how the VM works, and how the language is compiled.
 
 # Why?
 
-This project is made as an experiment to see if C++ can be learned easier if the lower level is covered in paralel.
+This project is made as an experiment to see if C can be learned easier if the lower level is covered in paralel.
 
 # Can I see it?
 
@@ -29,7 +29,7 @@ Tutorial (for people with 0 programming experience) :
   
 * ++,--,ternary
   
-* uion,enum
+* union,enum
   
 * n global variables
   
