@@ -908,7 +908,7 @@ int sum(int n) {
             onChatClicked(
                 'Those 3 lines of code are called a "program". It\'s just a list of steps for the computer to follow.',
                 'After you write a program like that, some kind of machine has to read it and follow the steps.',
-                'That\'s the whole point of programming. Hopefully the machine can do it faster and/or chapter than yourself.'
+                'That\'s the whole point of programming. Hopefully the machine can do it faster and/or easier than yourself.'
             ),
             onChatClicked(
                 'You might be wondering what do I mean by "machine".',
