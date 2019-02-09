@@ -31,7 +31,7 @@ Tutorial (for people with 0 programming experience) :
   
 * union,enum
   
-* n global variables
+* global variables
   
 * macros
 
