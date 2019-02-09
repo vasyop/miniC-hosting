@@ -9,15 +9,24 @@ This project is made as an experiment to see if C++ can be learned easier if the
 Demo: https://vasyop.github.io/miniC-hosting
 
 Tutorial (for people with 0 programming experience) : 
-  part 1 : https://vasyop.github.io/miniC-hosting/?0
+* part 1 : https://vasyop.github.io/miniC-hosting/?0
 
 Missing language features:
-  Static arrays and structs (dynamic arrays work fine).
-  Arrays of structs (arrays of pointers to structs works fine).
-  for, switch statements
-  bit operators
-  only bool,int,char as primitive types and they all have the same size in memory.
-  ++,--,ternary
-  union,enum
-  no global variables
-  macros
+
+* static arrays and structs (dynamic arrays and pointer to structs work fine).
+  
+* Arrays of structs (arrays of pointers to structs works fine).
+  
+* for, switch statements
+  
+* bit operators
+  
+* only bool,int,char as primitive types and they all have the same size in memory
+  
+* ++,--,ternary
+  
+* uion,enum
+  
+* n global variables
+  
+* mcros
