@@ -1,0 +1,227 @@
+body{
+    overflow: hidden;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --shadow-color: #bababa;
+    --std-transition: all 0.1s ease-in-out;
+    --fade-grey: #0000003d;
+    --color-highlight: #11b7be;
+    --color-ip:  #ace6e875;
+    --color-sp: #ffa50033;
+}
+
+*::selection {
+    background-color: var(--color-ip);
+}
+body, html, #ha-root, .ha-container{
+    height: 100%;
+}
+.ha-container {
+    font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    padding: 14px;
+    display: grid;
+    grid-column-gap: 14px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.generic-container {
+    height: 100%;
+    position: relative;
+}
+
+.shadow{
+    border: 1px solid var(--shadow-color);
+}
+
+.generic-top-right-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 100px;
+    height: 30px;
+    color: black;
+    font-weight: bold;
+    background: var(--color-ip);
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+    padding-top: 4px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border: 1px solid var(--color-highlight);
+    user-select: none;
+    transition: var(--std-transition);
+}
+
+.locked {
+    opacity: 0.7;
+}
+
+.generic-top-right-btn:hover:not(.locked) {
+    background: var(--color-highlight);
+    color:white;
+}
+
+.generic-top-right-btn--second{
+    top: 34px;
+}
+
+#editor, #printed-view {
+    width: 100%;
+    height: 100%;
+}
+
+.address-and-value{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
+    border-bottom: 1px solid var(--shadow-color);
+}
+
+.block{
+    font-size: 16px;
+    text-align: right;
+    padding: 2px;
+    padding-right: 5px;
+    transition: var(--std-transition);
+}
+
+.block-address{
+    border-right: 1px solid var(--shadow-color);
+}
+
+#printed-view .ace_active-line{
+    background-color: white;
+}
+
+.memory{
+    border: 1px solid var(--shadow-color);
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.color-sp-bp{
+    background-color: #e64c8040;
+}
+.color-sp{
+    background-color: var(--color-sp);
+} 
+.color-bp{
+   background-color: #80008038;
+} 
+.color-ip{
+   background-color: #ace6e875;
+} 
+.color-hp{
+   background-color: #57ab5763;
+} 
+
+.color-kw{
+    background-color: var(--color-highlight);
+}
+
+.vertical-align{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.stack-frame-line{
+    text-align: center;
+    font-size: 26px;
+    padding: 0px;
+    margin: 0px;
+    line-height: 15px;
+    position: absolute;
+    transition: var(--std-transition);
+}
+
+.stack-frame-line-text{
+    color: var(--fade-grey);
+    transform: translateY(-20px);
+}
+
+.address-paranthesis{
+    color: var(--fade-grey);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.ace_scrollbar{
+    display: none !important;
+}
+
+.chat-btn{
+    cursor: pointer;
+    transition: var(--std-transition);
+    position: fixed;
+    bottom: -76px;
+    right: -86px;
+    background: #ffffffe3;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.chat-btn-expanded{
+    height: 50%;
+    width: 38.3%;
+    border-radius: 0px;
+    bottom: 20px;
+    right: 20px;
+}
+
+.chat-inner{
+    padding: 29px;
+    background: var(--color-ip);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.chat-btn-expanded .chat-inner {
+    border-radius: 0px;
+}
+
+.chat-scrollable{
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    opacity: 0;
+    font-size: 17px;
+    user-select: none;
+}
+
+.chat-btn-expanded .chat-scrollable{
+    opacity: 1;
+}
+
+.chat-paragraph{
+    margin-bottom: 23px;
+}
+
+.box-shadow-highlighted{
+    box-shadow: 0px 0px 9px 4px var(--color-highlight);
+}
+
+.fade-grey-color{
+    transition: var(--std-transition);
+    color: #00000054;
+}
+
+.blinking{
+	animation: blinkingBkg 5s infinite;
+}
+@keyframes blinkingBkg{
+	0%{		background: var(--color-highlight);	}
+	50%{	background: red; height: 175px; width: 175px;	}
+	100%{	background: var(--color-highlight);	}
+}
