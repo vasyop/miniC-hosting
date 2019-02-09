@@ -1,8 +1,8 @@
 # What is it?
 
-A simple stack-based virtual machine that runs C (missing features below) in the browser.
+1. A simple stack-based virtual machine that runs C (missing features below) in the browser.
 
-It is also the beginning of an interactive tutorial that covers C, how the VM works, and how the language is compiled.
+2. The beginning of an interactive tutorial that covers C, how the VM works, and how the language is compiled.
 
 # Why?
 
