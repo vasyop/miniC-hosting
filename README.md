@@ -22,6 +22,8 @@ Tutorial (for people with 0 programming experience) :
 * Arrays of structs (arrays of pointers to structs works fine).
   
 * for, switch statements
+
+* preprocessor directives
   
 * bit operators
   
