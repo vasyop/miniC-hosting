@@ -735,7 +735,7 @@ int sum(int n) {
                 state.cCode = nextScriptItem.code
                 handleEvent(state, script[state.scriptIndex + 1].type)
             } else if (nextScriptItem.go2nextSection) {
-                location.replace(location.origin + '?' + (Number(window.location.search.substr(1)) + 1))
+                location.replace('https://github.com/vasyop/miniC-hosting/blob/master/support.md')
             }
         }
 
