@@ -15,6 +15,8 @@ Demo: https://vasyop.github.io/miniC-hosting
 Tutorial (for people with 0 programming experience) : 
 * part 1 : https://vasyop.github.io/miniC-hosting/?0
 
+# Consider [supporting](https://github.com/vasyop/miniC-hosting/edit/master/support.md)
+
 # Missing language features
 
 * static arrays and structs (dynamic arrays and pointer to structs work fine).
