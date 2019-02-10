@@ -886,7 +886,7 @@ int sum(int n) {
     const scripts = [
 
         addClickToContinues(flatten([
-            onBubble("Oh, Hi there!"),
+            onBubble("Oh, hi there!"),
             onFinished(
                 'I\'m Jarvis and you\'re about to start your adventure inside the C programming language and the machine that runs it. ',
                 'Feeling up to the challenge?'
@@ -896,7 +896,7 @@ int sum(int n) {
     return 132 - 531;
 }`),
             onFinished(
-                'I knew it! There is some C code on the first column. Do you see it?',
+                'I knew it! There is some C code in the first column. Do you see it?',
                 '(put your cursor on the C code to continue)'
             ),
             onCodeHovered('Yes, that\'s it. What do you think it means?'),
@@ -908,22 +908,22 @@ int sum(int n) {
             onChatClicked(
                 'Those 3 lines of code are called a "program". It\'s just a list of steps for the computer to follow.',
                 'After you write a program like that, some kind of machine has to read it and follow the steps.',
-                'That\'s the whole point of programming. Hopefully the machine can do it faster and/or chapter than yourself.'
+                'That\'s the whole point of programming. Hopefully the machine can do it faster and/or cheaper than yourself.'
             ),
             onChatClicked(
-                'You might be wondering what do I mean by "machine".',
+                'You might be wondering what I mean by "machine".',
                 'Well, something that I can give a list of numbers, start it, and then it gives me a list of numbers back.',
                 'It\'s that simple.'
             ),
             onChatClicked(
-                'Your computer is a machine just as I described it above, with just a few extra flavor on top.',
+                'Your computer is a machine just as I described it above, with a little extra flavor on top.',
                 'We call the numbers (that the machine works with) "memory".',
                 'After figuring out what the new numbers should be, only a few of them actually change and this is what the "processor" or CPU\'s job is: reading some numbers from memory, figuring out which have to change, and changing them.',
                 'After that, it doesn\'t stop, it goes on. We are about to see how.',
-                'We are going to look at what the processor does, how the memory looks like along the way, and how programming languages such as C can work under the hood.'
+                'We are going to look at what the processor does, how the memory looks along the way, and how programming languages such as C can work under the hood.'
             ),
             onChatClicked(
-                'We use numbers and not something else because it\'s not that hard to make circuits that say, add two numbers.',
+                'We use numbers and not something else because it\'s not that hard to make circuits that, say, add two numbers.',
                 'I don\'t know about you though, but I would quickly lose my mind if I had to write numbers into a computer all day.',
                 'But here is an idea. Write a program in something that looks more like English than plain numbers (such as that C code over there).',
                 'Then turn the C code into numbers, then give the numbers to the machine.'
@@ -933,13 +933,13 @@ int sum(int n) {
                 'See that "Compile" button?',
                 '(click "Compile" to continue)'
             ),
-            onCompileClicked('WOW! Lot\'s of things going on.'),
+            onCompileClicked('WOW! Lots of things going on.'),
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
             onFinishedSetHighLightAndAdvance(makeHighLights(3, 4, 5)),
             onFinished(
                 'The 3rd, 4th and 5th columns are parts of the memory of our machine.',
                 'It has 50.000 slots (0 to 49.999) where it can store numbers and we call these slots "addresses".',
-                'The left number is address of the number and the right is the actual number stored at that address.',
+                'The left number is the address of the number and the right is the actual number stored at that address.',
                 'For instance, the number at address 10.006 is 1028.',
                 'There are also 4 other special slots called "registers" (we will talk about them shortly).',
             ),
@@ -958,7 +958,7 @@ int sum(int n) {
                 'For instance, there is a "PUSH" instruction at address 10.004. Of course the machine has no idea what a "PUSH" is, it only knows what to do when it sees number 1002.',
             ),
             onChatClicked(
-                'For us though, it\'s easier to read and write "PUSH, PLUS, or RET" instead of "1002, 1021, or 1001"',
+                'For us though, it\'s easier to read and write "PUSH", "PLUS" or "RET" instead of "1002, 1021, or 1001"',
                 'When the machine looks at an instruction and does something, we say it\'s "executing" that instruction.',
                 'We will see along the way what each instruction does.'
             ),
@@ -978,13 +978,13 @@ int sum(int n) {
             onChatClicked(
                 'There are 20 or so instructions and some of them have "arguments".',
                 'What that means is that right after the instruction there is a number (the argument) that is taken into consideration when the instruction is executed.',
-                'The "RET" instruction is always followed by its argument. The one at address 10.007, has an argument of 0 (found at 10.008).',
+                'The "RET" instruction is always followed by its argument. The one at address 10.007 has an argument of 0 (found at 10.008).',
                 'The MINUS instruction at 10.006 is immediately followed by the next instruction, because it has no argument.'
             ),
             onChatClicked(
-                'After executing an instruction, the machine will increase IP by 2 if the instruction had an argument or by 1 if it didn\'t.',
+                'After executing an instruction, the machine will increase IP by 2 if the instruction had an argument, or by 1 if it didn\'t.',
                 'So the machine has to know, just like us, which instructions have an argument and which don\'t.',
-                'It "thinks": "When I see number 1002 (that\'s a PUSH for us humans), then I will increase IP by 2, then I will use the argument right after to execute it. Then I am ready of the next instruction."',
+                'It "thinks": "When I see number 1002 (that\'s a PUSH for us humans), then I will increase IP by 2, then I will use the argument right after to execute it. Then I am ready for the next instruction."',
                 '"When I see number 1028 (MINUS for us), I know to increase IP by 1 (because MINUS has no argument), and then I will execute the instruction and then I am ready for the next one."'
             ),
             onChatClicked('The 2nd column is a mix between the 1st and the 3rd.'),
@@ -1030,7 +1030,7 @@ int sum(int n) {
             onStepClicked(' '),
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
             onFinished(
-                'PUSH 132 was executed. IP increased by 2 and and now we see SP was increased by 1 and now points to 30.002.',
+                'PUSH 132 was executed. IP increased by 2 and now we see SP was increased by 1 and now points to 30.002.',
                 'Also, the value at SP (30.002) is now 132.',
                 'The number 132 was "pushed" on to the stack, we say.',
                 '(keep an eye on SP (at 30.002) and click "Step" to execute the 3nd instruction: PUSH 531)'
@@ -1042,7 +1042,7 @@ int sum(int n) {
             onStepClicked(' '),
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
             onFinished(
-                'PUSH 531 was executed: IP increased once again by 2 and the number 531 was also pushed on to the stack.',
+                'PUSH 531 was executed: IP increased by 2 once again and the number 531 was also pushed on to the stack.',
                 '(keep an eye on SP and click "Step" to execute the 4th instruction: MINUS)'
             ),
 
@@ -1063,8 +1063,8 @@ int sum(int n) {
             onStepClicked(' '),
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
             onFinished(
-                'We will cover RET in detail later, but for now, RET will end our program and whatever value is at address SP (-399 in this case), will be considered as the result of the execution.',
-                'By the way, we call the value at address SP, the "top of the stack"',
+                'We will cover RET in detail later, but for now, RET will end our program and whatever value is at address SP (-399 in this case) is considered to be the result of the execution.',
+                'By the way, we call the value at address SP the "top of the stack"',
                 'Oh, and choosing numbers like 10.000 (initial IP), 30.000 (initial SP) or 1002 (PUSH) is up to whoever made the machine. It doesn\'t matter too much.'
             ),
 
@@ -1073,7 +1073,7 @@ int sum(int n) {
             onFinished(' '),
             onChatClicked(
                 'This seems like a pretty complicated way to subtract two numbers.',
-                'It\'s this way because must also work with longer calculations such as (1-532*32)/53. You\'re about to see how.',
+                'It\'s this way because it must also work with longer calculations such as (1-532*32)/53. You\'re about to see how.',
                 'Feel free free to compile and step through the small program we just covered until you are ready to move forward to the next section.',
             ),
             onChatClickedToNextSection()
