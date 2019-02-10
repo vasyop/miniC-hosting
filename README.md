@@ -19,6 +19,8 @@ Tutorial (for people with 0 programming experience) :
 
 # Missing language features
 
+* operator new is working (like in C++), no malloc
+
 * static arrays and structs (dynamic arrays and pointer to structs work fine).
   
 * Arrays of structs (arrays of pointers to structs works fine).
