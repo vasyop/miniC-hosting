@@ -11,7 +11,7 @@ I very much enjoyed working on this project up until now, and it will get done f
 I want to devote as much time as I can to working on this, so I quickly sketched up a patreon account.
 
 I haven't figured details so there's a lot of missing stuff over there.
-Please consider supporting this project on *[patreon](https://www.patreon.com/vasyop)*.
+**Please consider supporting this project on [patreon](https://www.patreon.com/vasyop)**.
 
 Also, it's clear that a lot of people would be interested to see this work completed, so consider spreading the word (if you the "reach" to do so, as I am not a social media person).
 
