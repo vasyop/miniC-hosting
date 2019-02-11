@@ -1081,60 +1081,6 @@ int sum(int n) {
 
         addClickToContinues(flatten([
             onBubble('TODO')
-            /*
-    
-            when talking about p langs, 132 - 531 is an expression
-            132 is also
-            (1-532*32)/53 is also
-    
-            Let\'s follow the thought process of the compiler at it turned the expression "132 - 531" into "PUSH 132, PUSH 531, MINUS"
-    
-            so an expression can be :
-                a number: 2
-                an expression followed by an operator (like +) and then another expression: 2+2
-                '(' followed by and expression and then ')': (2+2)
-    
-            132 531 - is the postfix notation of the expression
-            a longer expr(with a paren) e has a postfix notation of pe
-            the compiler just finds the postfix notation and then runs the numbers into PUSH nr and the operators into their equivalent expressions
-            not all machines / compilers work this way but it\'s a straightforward way to do it. Java and C# work this way.
-    
-            lets see what this longer expression should compile to
-    
-            <complie and awe in wonder that we know how the compiler works>
-    
-            it doesn\'t matter how big our expression is, because, in posfix notation:
-    
-                any expression is made out of 2 smaller expressions and then an operator
-                to execute (we also say evaluate) any expression all we need to to is
-                     evaluate the first subexpression (at this point the stack looks as if we just pushed the result of the first subexpression, no matter how big the first subexpression is)
-                     evaluate the 2nd subexpression (this won't disturb the result of the first and after doing this it s as it we pushed the results of the the two subexpressions)
-                     execute the instruction coresponding to the operator of the expression that will replace the 2 values with one: the result
-    
-                if you are not convinced, try and step through the execution of any long expression in <the playground> where you put any C code you like.
-    
-    
-            so now we have a good understanding expressions.
-    
-            cover all operators
-    
-            
-            // the lang bit by bit, syntax and semantics on the way
-    
-            // vars
-            // stmts
-            // arrays - why does it start from 0
-            // strings 
-                hide the 3rd coumn and replace it with the data seg
-                some exercises  about how does the compiler work
-                    "that's a compiler, jus takes some numbers into memoery and turns them into other numbers in memory"
-    
-            // functions 
-                stack is like a hierarchical todo list
-            
-            no you see how programming works under the hood better than msot programmers, no practice (compiler errors, writing algorithms)
-            if you want to program for a living, now it\'s the time to exercise: links with topics covered and where to go from here
-            */
         ]))
 
     ]
