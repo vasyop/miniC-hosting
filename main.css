@@ -226,21 +226,25 @@ body, html, #ha-root, .ha-container{
 	100%{	background: var(--color-highlight);	}
 }
 
-.email-btn{
+.bot-left-btns{
     position: absolute;
-    padding: 10px;
     left: 2.5%;
     font-size: 18px;
-    bottom: 50px;
+    bottom: 5%;
     width: 15.5%;
-    background: var(--color-sp);
     font-weight: bold;
     cursor: pointer;
     opacity: 0;
     transition: 1s all ease-in-out;
 }
 
-.email-btn-visible{
+.bot-left-btns-visible{
     opacity: 1;
+}
 
+.bot-left-btn{
+    padding: 10px;
+    background: var(--color-sp);
+    margin-bottom: 15px;
+    border: 1px solid var(--shadow-color);
 }

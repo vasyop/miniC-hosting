@@ -541,12 +541,25 @@ int sum(int n) {
         function EmailBtn() {
             return h(
                 'div', {
-                    class: 'email-btn ' + classIf(getState().emailVisible,' email-btn-visible'),
+                    class: 'bot-left-btns' + classIf(getState().emailVisible, ' bot-left-btns-visible')
+                },
+                h('div', {
+                    class:'bot-left-btn',
                     onclick: function () {
                         window.open('https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform', '_blank')
                     }
                 },
-                'Notify me when new tutorials are released'
+                    'Get notified when new tutorials are released'
+                ),
+
+                h('div', {
+                    class:'bot-left-btn',
+                    onclick: function () {
+                        window.open('https://github.com/vasyop/miniC-hosting/blob/master/support.md', '_blank')
+                    }
+                },
+                    'Support this project'
+                )
             )
         }
 
