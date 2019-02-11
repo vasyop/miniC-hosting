@@ -10,12 +10,4 @@ It's clear that a lot of people would be interested to see this work completed, 
 
 ### [Get Notified when new tutorials get released](https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform)
 
-Please know that this is a side project and that I am working full time and I also have my masters degree classes on weekends.
-
-I very much enjoyed working on this project up until now, and it will get done for sure, seeing how well it was received.
-
-I want to devote as much time as I can to working on this, so I quickly sketched up a patreon account.
-
-I haven't figured details so there's a lot of missing stuff over there.
-
-### **Please consider supporting this project on [patreon](https://www.patreon.com/vasyop)**.
+### **Consider supporting this project on [patreon](https://www.patreon.com/vasyop)**.
