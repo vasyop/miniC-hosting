@@ -15,6 +15,8 @@ Demo: https://vasyop.github.io/miniC-hosting
 Tutorial (for people with 0 programming experience) : 
 * part 1 : https://vasyop.github.io/miniC-hosting/?0
 
+# Get [notified](https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform) when new tutorials are released.
+
 # Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project
 
 # Missing language features
