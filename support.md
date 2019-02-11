@@ -6,9 +6,9 @@ Hi, everyone ! Thank you for your very positive feedback [here](https://www.redd
 
 ### [Staring](https://github.com/vasyop/miniC-hosting) this repo helps a lot.
 
-If you are a well connected person, consider **sharing** this project.
+### If you are a well connected person, consider **sharing** this project.
 
-### [Get Notified when new tutorials get released](https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform)
+### Get [notified](https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform) when new tutorials are released.
 
 ### Consider **supporting** this project on **[patreon](https://www.patreon.com/vasyop)**.
 
