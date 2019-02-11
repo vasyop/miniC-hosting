@@ -6,7 +6,7 @@
 
 # Why?
 
-This project is made as an experiment to see if C can be learned easier if the lower level is covered in paralel.
+This project is made as an experiment to see if C can be learned easier if the lower level is covered in parallel.
 
 # Can I see it?
 
