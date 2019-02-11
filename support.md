@@ -16,4 +16,6 @@ I haven't figured details so there's a lot of missing stuff over there.
 
 Also, it's clear that a lot of people would be interested to see this work completed, so consider spreading the word (if you the "reach" to do so, as I am not a social media person).
 
-[Star](https://github.com/vasyop/miniC-hosting) this repo.
+### [Staring](https://github.com/vasyop/miniC-hosting) this repo helps.
+
+### [Get Notified when new tutorials get released](https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform)

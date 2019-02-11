@@ -27,6 +27,8 @@
                 runBtn: true,
             },
 
+            emailVisible: false,
+
             highlighted: {},
 
             isWriting: false,
@@ -90,7 +92,8 @@ int sum(int n) {
                 MemorySection(getState().heapFrom, lazyHandler((state, arg) => state.heapFrom = Math.max(0, state.heapFrom + arg)), 5),
                 StackFramesTexts(),
                 InstructionsTexts(),
-                Chat()
+                Chat(),
+                EmailBtn()
             )
         }
 
@@ -227,6 +230,7 @@ int sum(int n) {
                 'div', {
                     class: 'generic-top-right-btn' + classIf(getState().locked.stepBtn, 'locked'),
                     onclick: lazyHandler((state, e) => {
+                        state.emailVisible = true
                         handleEvent(state, 'step-clicked')
                         e.stopPropagation()
                         if (state.locked.stepBtn) return
@@ -531,6 +535,18 @@ int sum(int n) {
                         ))
                     )
                 )
+            )
+        }
+
+        function EmailBtn() {
+            return h(
+                'div', {
+                    class: 'email-btn ' + classIf(getState().emailVisible,' email-btn-visible'),
+                    onclick: function () {
+                        window.open('https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform', '_blank')
+                    }
+                },
+                'Notify me when new tutorials are released'
             )
         }
 

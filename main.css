@@ -225,3 +225,22 @@ body, html, #ha-root, .ha-container{
 	50%{	background: red; height: 175px; width: 175px;	}
 	100%{	background: var(--color-highlight);	}
 }
+
+.email-btn{
+    position: absolute;
+    padding: 10px;
+    left: 2.5%;
+    font-size: 18px;
+    bottom: 50px;
+    width: 15.5%;
+    background: var(--color-sp);
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+}
+
+.email-btn-visible{
+    opacity: 1;
+
+}
