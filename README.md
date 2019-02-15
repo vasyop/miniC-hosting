@@ -1,4 +1,4 @@
-# What is it?
+## What is it?
 
 1. A simple stack-based virtual machine that runs C (missing features below) in the browser.
 
