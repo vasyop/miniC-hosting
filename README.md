@@ -7,6 +7,8 @@
 ## Why?
 
 This project is made as an experiment to see if C can be learned easier if the lower level is covered in parallel.
+My current goal is to release a series of tutorials that teach C from the ground up, without having to take anything for granted.
+I strongly believe that understanding the thought process behind something makes learning it so much easier.
 
 ## Can I see it?
 
@@ -19,11 +21,12 @@ Tutorial (for people with 0 programming experience) :
 
 ## Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
 
-## Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project
-
 ## [Staring](https://github.com/vasyop/miniC-hosting) helps.
 
-## Missing language features
+## Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project
+
+
+### Missing language features
 
 * operator new is working (like in C++), no malloc
 
