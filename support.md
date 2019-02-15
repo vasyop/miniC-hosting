@@ -8,8 +8,6 @@ Hi, everyone ! Thank you for your very positive feedback [here](https://www.redd
 
 ### [Staring](https://github.com/vasyop/miniC-hosting) this repo helps a lot.
 
-### Consider **sharing** this project on social media.
+### Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
 
 ### Consider **supporting** this project on **[patreon](https://www.patreon.com/vasyop)**.
-
-### Reach me at **andrei_vasy2009@yahoo.com** for anything related.
