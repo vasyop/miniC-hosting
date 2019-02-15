@@ -4,22 +4,24 @@
 
 2. The beginning of an interactive tutorial that covers C, how the VM works, and how the language is compiled.
 
-# Why?
+## Why?
 
 This project is made as an experiment to see if C can be learned easier if the lower level is covered in parallel.
 
-# Can I see it?
+## Can I see it?
 
 Demo: https://vasyop.github.io/miniC-hosting
 
 Tutorial (for people with 0 programming experience) : 
 * part 1 : https://vasyop.github.io/miniC-hosting/?0
 
-# Get [notified](https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform) when new tutorials are released.
+## Get [notified](https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform) when new tutorials are released.
 
-# Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project
+## Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
 
-# Missing language features
+## Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project
+
+## Missing language features
 
 * operator new is working (like in C++), no malloc
 
