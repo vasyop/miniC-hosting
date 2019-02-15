@@ -21,6 +21,8 @@ Tutorial (for people with 0 programming experience) :
 
 ## Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project
 
+## [Staring](https://github.com/vasyop/miniC-hosting) helps.
+
 ## Missing language features
 
 * operator new is working (like in C++), no malloc
