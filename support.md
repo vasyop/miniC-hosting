@@ -1,4 +1,4 @@
-# Your support matters.
+# Support this project.
 
 *Your adventure is...being crafted*.
 
