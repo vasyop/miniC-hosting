@@ -12,10 +12,11 @@ I strongly believe that understanding the thought process behind something makes
 
 ## Can I see it?
 
-Demo: https://vasyop.github.io/miniC-hosting
-
 Tutorial (for people with 0 programming experience or trying to learn C) : 
-* part 1 : https://vasyop.github.io/miniC-hosting/?0
+* [Part 1](https://vasyop.github.io/miniC-hosting/?0).
+* [Part 2](https://vasyop.github.io/miniC-hosting/?1).
+
+[Sandbox](https://vasyop.github.io/miniC-hosting).
 
 ## Get [notified](https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform) when new tutorials are released.
 
