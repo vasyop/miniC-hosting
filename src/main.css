@@ -36,18 +36,20 @@ body, html, #ha-root, .ha-container{
 }
 
 .generic-top-right-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 2px;
     right: 2px;
-    width: 100px;
-    height: 30px;
+    width: 28%;
+    height: 3.6%;
     color: black;
     font-weight: bold;
     background: var(--color-ip);
     text-align: center;
     vertical-align: middle;
-    font-size: 18px;
-    padding-top: 4px;
+    font-size: 1vw;
     cursor: pointer;
     letter-spacing: 1px;
     border: 1px solid var(--color-highlight);
@@ -65,7 +67,7 @@ body, html, #ha-root, .ha-container{
 }
 
 .generic-top-right-btn--second{
-    top: 34px;
+    top: 4%;
 }
 
 #editor, #printed-view {

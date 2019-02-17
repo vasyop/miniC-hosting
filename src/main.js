@@ -145,10 +145,10 @@ int sum(int n) {
         function CompileBtn() {
             return h(
                 'div', {
-                    class: 'generic-top-right-btn ' + classIf(getState().locked.compileBtn, 'locked'),
+                    class: 'generic-top-right-btn compile-btn' + classIf(getState().locked.compileBtn || getState().isWriting, 'locked'),
                     onclick: lazyHandler((state, e) => {
                         e.stopPropagation()
-                        if (state.locked.compileBtn) return
+                        if (getState().locked.compileBtn || getState().isWriting) return
                         try {
                             invoke('Init', getState().cCode)
                             state.isCompilerError = false
@@ -228,12 +228,12 @@ int sum(int n) {
         function StepBtn() {
             return h(
                 'div', {
-                    class: 'generic-top-right-btn' + classIf(getState().locked.stepBtn, 'locked'),
+                    class: 'generic-top-right-btn' + classIf(getState().locked.stepBtn || getState().isWriting, 'locked'),
                     onclick: lazyHandler((state, e) => {
+                        e.stopPropagation()
+                        if (getState().locked.stepBtn || getState().isWriting) return
                         state.emailVisible = true
                         handleEvent(state, 'step-clicked')
-                        e.stopPropagation()
-                        if (state.locked.stepBtn) return
                         updateStackFramesAndHeapObjects(state) // always before step
                         if (!invoke('Step')) {
                             const ret = invoke('MemorySlice', invoke('SP'), 1)[0]
@@ -302,13 +302,11 @@ int sum(int n) {
         function RunBtn() {
             return h(
                 'div', {
-                    class: 'generic-top-right-btn generic-top-right-btn--second' + classIf(getState().locked.runBtn, 'locked'),
+                    class: 'generic-top-right-btn generic-top-right-btn--second' + classIf(getState().locked.runBtn || getState().isWriting, 'locked'),
                     onclick: lazyHandler((state, e) => {
                         e.stopPropagation()
-                        if (state.locked.runBtn) return
-                        while (invoke('Step')) {
-
-                        }
+                        if (getState().locked.runBtn || getState().isWriting) return
+                        while (invoke('Step')) { }
                         const ret = invoke('MemorySlice', invoke('SP'), 1)[0]
                         alert("main() returned " + ret)
                         state.isCompilerError = true // reset
@@ -753,7 +751,30 @@ int sum(int n) {
             state.scriptIndex++
 
             if (nextScriptItem.txt) {
-                writeScriptItem(state)
+                if (!nextScriptItem.compile) {
+                    writeScriptItem(state)
+                } else {
+                    setTimeout(lazyHandler(state => {
+
+                        // save old state
+                        const oldLock = state.locked.compileBtn
+                        const oldWriting = state.isWriting
+
+                        // do this, otherwise the click won't work
+                        state.locked.compileBtn = false
+                        state.isWriting = false
+
+                        setTimeout(lazyHandler(_ => {
+                            document.querySelector('.compile-btn').click()
+                        }))
+
+                        setTimeout(lazyHandler(state => {
+                            state.locked.compileBtn = oldLock
+                            state.isWriting = oldWriting
+                            writeScriptItem(state)
+                        }))
+                    }))
+                }
             } else if (nextScriptItem.locked !== undefined) {
                 state.locked = nextScriptItem.locked
                 handleEvent(state, script[state.scriptIndex + 1].type)
@@ -764,7 +785,13 @@ int sum(int n) {
                 state.cCode = nextScriptItem.code
                 handleEvent(state, script[state.scriptIndex + 1].type)
             } else if (nextScriptItem.go2nextSection) {
-                location.replace('https://github.com/vasyop/miniC-hosting/blob/master/support.md')
+            
+            	const idx = Number(window.location.search.substr(1)) + 1
+                
+                if(scripts[idx])
+                	location.replace(location.origin + '?' + (Number(window.location.search.substr(1)) + 1))
+                else
+                	location.replace('https://github.com/vasyop/miniC-hosting/blob/master/support.md')
             }
         }
 
@@ -892,6 +919,14 @@ int sum(int n) {
         }
     }
 
+    function onFinishedCompileAndWrite(txt) {
+        return {
+            type: 'bot-finished',
+            txt,
+            compile: true
+        }
+    }
+
     function onFinishedSetHighLightAndAdvance(highlighted) {
         return {
             type: 'bot-finished',
@@ -913,6 +948,9 @@ int sum(int n) {
     }
 
     const scripts = [
+
+
+        // part 1
 
         addClickToContinues(flatten([
             onBubble("Oh, hi there!"),
@@ -1103,15 +1141,285 @@ int sum(int n) {
             onChatClicked(
                 'This seems like a pretty complicated way to subtract two numbers.',
                 'It\'s this way because it must also work with longer calculations such as (1-532*32)/53. You\'re about to see how.',
-                'Feel free free to compile and step through the small program we just covered until you are ready to move forward to the next section.',
+                'Feel free to compile and step through the small program we just covered until you are ready to move forward to the next section.',
             ),
             onChatClickedToNextSection()
         ])),
 
-        addClickToContinues(flatten([
-            onBubble('TODO')
-        ]))
 
+
+
+
+
+
+
+        // part 2
+
+
+
+
+
+
+
+        addClickToContinues(flatten([
+
+            onBubble('So, are you ready to C more?'),
+            
+            onFinished('(yes, veery funny)'),
+
+            onChatClicked(' '),
+            onFinished(
+                'For that expression of yours, anytime.',
+                'Speaking of which, remember "132 - 531"?',
+                'That, in the world of programming languages, is an "expression".',
+                'Intuitively, anything that can be computed into a number, is an expression (more on that later).'
+            ),
+
+            onChatClicked(
+                'Technically, an expression can be 1 of 2 (for now) things:',
+                '[1] A number (like "32").',
+                '[2] An expression, followed by an "operator" and then another expression (like "535 * 32")'
+            ),
+
+            onChatClicked(
+                '[2] defines an expression in terms of an expression (also called a "recursive definition"), but its purpose is more than just to twist our minds. Let me show you what I mean.',
+                '"1 + 2" and is surely an expression. But "1" could have been any expression (according to [2]), which means we can replace 1 with "17 * 3" and get "17 * 3 + 2", a slightly longer expression.',
+                'We can keep replacing any number with a number followed by an operator and another number, and our expression keeps expanding.'
+            ),
+            onChatClicked(
+                'So what is the thought process of the compiler when it sees a very long expression?',
+                'There is just one key observation to be made.',
+                'While the machine is "evaluating" (running the instructions that will compute the result of) an expression (no matter how big), SP will always increase by some amount (depending on how big the expression is), then it will always decrease back to its original value plus 1, and the result of the expression will be on the top of the stack.',
+                'Let\'s see why that is, with the help of some examples.'
+            ),
+            onChatClicked('  '),
+
+
+            //5
+            onFinishedSetCodeAndAdvance(`int main() {
+    5;
+}`
+            ),
+            onFinishedCompileAndWrite(
+                'Here, the expression "5" was compiled.',
+                'Just PUSH 5 on to the stack and that\'s the only instruction that we need to evaluate the expression.'
+            ),
+            onFinished(
+                '(go ahead and step though the code)'
+            ),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
+            onFinished(' '),
+            onStepClicked(' '),
+            onFinished(' '),
+
+            onStepClicked(' '),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
+            onFinished(
+                'After PUSH 5, our expression has been evaluated and SP is indeed at its original value (30.001, before PUSH) plus 1 (30.002, no big surprise there) and the result is on the top of the stack.',
+            ),
+            onChatClicked(
+                'Now, the POP instruction (just decreases SP by 1) is about to be executed. ',
+                'Why did the compiler generate this?',
+                'Well, we haven\'t said we want to do anything with that 5 (like "return 5;"), so the compiler is essentially throwing the result away (by decreasing SP by 1), as if the expression was never evaluated.',
+                'The POP instruction is not part of the expression evaluation. We will see later exactly when it is generated.',
+                'Some compilers try to be smart about it and will ignore the line "5;" of our C code completely. "The programmers are just being silly", they think.'
+            ),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
+            onFinished('(go on stepping)'),
+            onStepClicked(' '),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
+            onFinished(
+                'Notice that the compiler is always generating a "RET 0" at the very end of any program in case we forgot write any "return" (which we just did).',
+                'If "RET 0" was not there right now, the machine would just attempt to execute whatever instruction IP points to after executing POP. In this case, IP would point to a "0", which doesn\'t correspond to any instruction, so the machine would just stop immediately.'
+            ),
+            onChatClicked(
+                'It is possible, however, that IP would not point to a "0" and in that case, the machine will continue executing the instructions of another function (we will see when talking about functions), which is very unexpected, so the compiler is just making sure that never happens.',
+                'Other compilers might not even compile our code if they don\'t find any "return", but this one is not that strict.'
+            ),
+            onChatClicked(
+                'When the "RET" instruction is hit, whatever is on the top of the stack at that moment will be returned. In our case, the top of the stack, 30.000, is not a meaningful value for us unless we are writing a virus, which we will, later.',
+            ),
+            onFinished('(go on stepping)'),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
+            onFinished(' '),
+            onStepClicked(' '),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
+
+
+            // 5 * 3
+            onFinishedSetCodeAndAdvance(`int main() {
+    5 * 3;
+}`
+            ),
+            onFinishedCompileAndWrite(
+                'Let\'s have a look at the expression "5 * 3".'
+            ),
+            onFinished(
+                'It compiles to "PUSH 5, PUSH 3, TIMES". ',
+                'TIMES behaves much like MINUS we saw earlier. It POPs two numbers off the stack and PUSHes the result, only this time, it multiplies the numbers).',
+                '(go ahead and step though the code)'
+            ),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
+            onFinished(' '),
+            onStepClicked(' '),
+            onFinished(' '),
+
+            onStepClicked(' '),
+            onStepClicked(' '),
+            onStepClicked(' '),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
+            onFinished('So, once again, after evaluating the expression, SP has increased by one and the result is on the top of the stack.'),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
+            onFinished('(go on stepping)'),
+            onStepClicked(' '),
+            onStepClicked('  '),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
+
+
+            // 5 * 3 + 2
+            onFinishedSetCodeAndAdvance(`int main() {
+    5 * 3 + 2;
+}`
+            ),
+            onFinishedCompileAndWrite(
+                'What about "5 * 3 + 2"?'
+            ),
+            onFinished('(go ahead and step though the code)'),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
+            onFinished(' '),
+            onStepClicked(' '),
+            onFinished(' '),
+
+            onStepClicked(' '),
+            onStepClicked(' '),
+            onStepClicked(' '),
+            onStepClicked(' '),
+            onStepClicked(' '),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
+            onFinished('Again, the result is on the top of the stack, and our evaluation increased SP by 1 (from 30.001 to 30.002).'),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
+            onFinished('(go on stepping)'),
+            onStepClicked(' '),
+            onStepClicked('  '),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
+
+            onFinished(
+                'Because operators always sit between numbers in an expression, the number of operators of an expression is 1 less than the number of numbers, no matter how long the expression is.',
+                'So there is always 1 less instruction that decreases SP (like PLUS), than the number of PUSHes. So it makes sense that, in the end, SP must be one more than it stared.'
+            ),
+
+            onChatClicked(
+                'We can also see a pattern here: no matter what expression we give to the compiler, it just has to swap each operator with the number on its left, and then replace each number with "PUSH number" and the operator with its corresponding instruction. Let\'s see an example.',
+            ),
+
+            onChatClicked(
+                '"5 * 3 + 2" becomes "5 3 * 2 +" (swapping), which is finally compiled to "PUSH 5, PUSH 3, TIMES, PUSH 2, PLUS". (replace)',
+                '"5 3 * 2 +" is sometimes called the "reverse polish notation" of "5 * 3 + 2" (which is just a way of saying: "write the numbers, and then the operator, instead of sticking the operator between the numbers").',
+                'For the compiler, this is perfect because it always has to know what the numbers are before adding them.',
+                'Making use of the reverse polish notation is the typical way expressions are compiled in "stack-based machines" (machines that use a stack to evaluate expressions) like this one.'
+            ),
+
+            onChatClicked(
+                'It is useful to view all the instructions generated from an expression as single instruction: "PUSH <expression-result>."',
+                'What I mean by this is that the stack is in the same state after doing "PUSH 2, PUSH 3, PLUS" as after doing "PUSH 5".',
+                'Both ways lead to a 5 being on the top of the stack and SP increased by 1.'
+            ),
+
+            onChatClicked(
+                'The only difference is that after "PUSH 2, PUSH 3, PLUS", we will have a 5 at SP, but the 3 we pushed is still at SP + 1. ',
+                'However, any address above SP we don\'t care about because the only thing that can happen to it is we are going to overwrite its value later with a PUSH.',
+                'This is why SP is called "top of the stack". Everything higher than SP is just free space for the stack to grow if we ever use PUSH again.',
+                'When SP decreases, it\'s like saying "We don\'t need that space right now, but we will later when we PUSH."'
+            ),
+
+            onChatClicked(
+                'So we can say "PLUS 5" is equivalent (as far as the stack is concerned) with "PUSH 2, PUSH 3, PLUS", which is equivalent with "PUSH 1, PUSH 2, TIMES, PUSH 3, PLUS" which is equivalent with any expression that evaluates to 5, no matter how long.',
+                'So this is the rationale of the compiler when generating the instructions that evaluate an expression.'
+            ),
+
+            // precedence
+
+            onChatClicked(
+                'We are not quite done yet, because our rule doesn\'t work so well on the expression "2 + 5 * 3".',
+                'The reverse polish notation would be "2 5 + 3 *" and that would compile to "PUSH 2, PUSH 5, PLUS, PUSH 3, TIMES" which would evaluate to 21.',
+                'But we all know that\'s wrong because the multiplication should be done before the addition. The correct way is 2 + 15 = 17.',
+                'So let\'s see what this expression actually compiles to.'
+            ),
+            onChatClicked('  '),
+            onFinishedSetHighLightAndAdvance(makeHighLights('adr10009')),
+            onFinishedSetCodeAndAdvance(`int main() {
+    return 2 + 5 * 3;
+}`),
+            onFinishedCompileAndWrite('The instruction PLUS was moved to the very end of the evaluation.'),
+            onFinished(
+                'What the compiler is thinking is : "First, "2" must be evaluated, then "5 * 3", and then their results must be added".',
+                'So it just split the expression in two smaller ones ("2" and "5 * 3").',
+                'It then generated the instructions to evaluate 2 ("PUSH 2") and then the instructions to evaluate "5 * 3" ("PUSH 5, PUSH 3, TIMES") and added a final PLUS instruction that will use the two results evaluate the whole expression.',
+                'Let\'s see how this works.',
+                '(click "Step" to continue)'
+            ),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
+            onFinished(' '),
+            onStepClicked(' '),
+            onFinishedSetHighLightAndAdvance(makeHighLights()),
+            onFinished(' '),
+            onStepClicked('Now the first expression "2" has been evaluated.'),
+            onFinished('(go on stepping)'),
+            onStepClicked(' '),
+            onStepClicked(' '),
+            onStepClicked('And now the result of the second one is on the top of the stack, and we are ready to add them.'),
+            onFinished('(go on stepping)'),
+            onStepClicked(' '),
+            onStepClicked('And we got our correct result, 17.'),
+
+            onChatClicked('  '),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
+            onChatClicked(
+                'This is called "operator precedence".',
+                'Each language has an operator "precedence table" that assigns a "precedence level" (which is just a number) to each operator.',
+                'Operators "+" and "-" have the same precedence level, while "*" and "/" also have the same precedence, but a lower one.',
+                'The compiler just uses this precedence table to generate instructions correctly.',
+                'Let\'s see this in action.'
+            ),
+            
+            onFinishedSetCodeAndAdvance(`
+
+int main() {
+    3 + 10 / 5 + 7 * 6 / 3 - 11;
+}`),
+onFinished(' '),
+            onChatClicked(
+                'What should "3 + 10 / 5 + 7 * 6 / 3 - 11" compile to?',
+                'We will use the reverse polish notation along the way and write the instructions at the end.',
+                'Firstly, we look for the operators with the lowest precedence.',
+                'The first one is "/", right after 10, so we start from 10 and stop at the first operator that has a higher precedence, the "+" after 5.',
+                'We have now identified our first subexpression, "10 / 5", which we write (in reverse polish notation) as "10 5 /".',
+            ),
+
+            onChatClicked(
+                'We then look for the next operator with the lowest precedence which is "*" (right after 7) and we stop at the next operator with a higher precedence, "-", and we get our second subexpression, "7 * 6 / 3", which we write as "7 6 * 3 /".',
+                'We can now see our initial expression as "3 + subexpression1 + subexpression2 - 11", which we write as "3 subexpression1 + subexpression2 + 11 -".',
+            ),
+
+            onChatClicked(
+                'We then substitute subexpression1 and subexpression2 with their reverse polish notations, and get the final expression "3 (10 5 /) + (7 6 * 3 /) + 11 -" (I marked the beginning and the end of the subexpressions with parenthesis to make it easier to understand).',
+                'To compile this, we just have to replace numbers with PUSH and operators with their specific instructions."',
+                'Our instructions are: "PUSH 3, (PUSH 10, PUSH 5, DIV), PLUS, (PUSH 7, PUSH 6, TIMES, PUSH 3, DIV), PLUS, PUSH 11, MINUS".'
+            ),
+            onFinishedChangeLockAndAdvance(makeLock(true, false, true, true)),
+
+            onFinished('(click "Compile" to continue)'),
+
+            onCompileClicked('And there we have it, exactly what we expected.'),
+            onFinished(
+                'There are many other operators with higher and lower levels of precedence, and we will learn them all along the way, but enough with expressions for now.'
+            ),
+            onChatClicked(
+                'We have seen how the compiler uses the reverse polish notation to compile expressions of any size and then how precedence is handled. ',
+                'Next time, we will look at other expressions such as "-(5 + 3) * 2", and then we move on to "variables".'
+            ),
+            onChatClickedToNextSection()
+        ]))
     ]
 
     const script = scripts[window.location.search.substr(1)] || { noScript: true }
