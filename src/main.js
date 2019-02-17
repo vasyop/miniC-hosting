@@ -789,7 +789,7 @@ int sum(int n) {
             	const idx = Number(window.location.search.substr(1)) + 1
                 
                 if(scripts[idx])
-                	location.replace(location.origin + '?' + (Number(window.location.search.substr(1)) + 1))
+                	location.replace(location.origin + '/miniC-hosting?' + (Number(window.location.search.substr(1)) + 1))
                 else
                 	location.replace('https://github.com/vasyop/miniC-hosting/blob/master/support.md')
             }
