@@ -14,7 +14,7 @@ I strongly believe that understanding the thought process behind something makes
 
 [Sandbox](https://vasyop.github.io/miniC-hosting).
 
-Tutorial (for people with 0 programming experience or trying to learn C) : 
+Tutorial (for people with 0 programming experience or willing to learn C) : 
 * [Part 1](https://vasyop.github.io/miniC-hosting/?0).
 * [Part 2](https://vasyop.github.io/miniC-hosting/?1).
 
