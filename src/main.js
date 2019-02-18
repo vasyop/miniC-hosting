@@ -1309,7 +1309,7 @@ int sum(int n) {
             ),
 
             onChatClicked(
-                'We can also see a pattern here: no matter what expression we give to the compiler, it just has to swap each operator with the number on its left, and then replace each number with "PUSH number" and the operator with its corresponding instruction. Let\'s see an example.',
+                'We can also see a pattern here: no matter what expression we give to the compiler, it just has to swap each operator with the number on its right, and then replace each number with "PUSH number" and the operator with its corresponding instruction. Let\'s see an example.',
             ),
 
             onChatClicked(
