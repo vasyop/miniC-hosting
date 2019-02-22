@@ -22,7 +22,7 @@ Tutorial (for people with 0 programming experience or willing to learn C) :
 
 ## Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
 
-## [Staring] this on github (https://github.com/vasyop/miniC-hosting) helps.
+## [Staring](https://github.com/vasyop/miniC-hosting) this on github helps.
 
 ## Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project
 
