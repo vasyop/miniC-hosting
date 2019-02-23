@@ -19,9 +19,9 @@ I was frustrated and confused.
 I've always hated learning things by heart without really understanding them.
 
 For years I had wished someone could break programming down and teach it from the groud up, concepts first, details later. 
-If someone could answer my "why?" questions, it would be much easier to learn.
+If someone could answer my "why?" questions, everything would be much easier to learn.
 
-With this project, I will teach you programming one step at a time, from the very ground up.
+With this project, I want to teach programming one step at a time, from the very ground up.
 
 And no, it's not going to take forever. 
 I am not covering unnecessary details, those are easy to look up.
