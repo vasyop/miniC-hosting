@@ -16,7 +16,7 @@ What's going on?
 Why do I have to write this?
 What's happening under the hood?
 I was frustrated and confused.
-I've always hated learning things by heart not really knowing what's going on.
+I've always hated learning things by heart without really understanding them.
 
 For years I had wished someone could break programming down and teach it from the groud up, concepts first, details later. 
 If someone could answer my "why?" questions, it would be much easier to learn.
