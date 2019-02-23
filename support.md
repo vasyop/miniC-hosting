@@ -6,4 +6,4 @@ Hi everyone ! Thank you for your very positive feedback [here](https://www.reddi
 
 I'm already working full-time and studying on weekends there isn't much time left for this project, just early mornings and late nights for now.
 
-My goal free up at least one or two days per week and work more on this project, but that can only happen with your **[support](https://www.patreon.com/vasyop)**.
+My goal is to free up at least one or two days per week to work on this project, but that can only happen with your **[support](https://www.patreon.com/vasyop)**.
