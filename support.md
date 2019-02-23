@@ -1,4 +1,4 @@
-# Support this project.
+# [support](https://www.patreon.com/vasyop) this project.
 
 *Your adventure is...being crafted*.
 
