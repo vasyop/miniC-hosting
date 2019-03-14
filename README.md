@@ -34,7 +34,7 @@ Tutorial (for people with 0 programming experience or willing to learn C) :
 * [Part 1](https://vasyop.github.io/miniC-hosting/?0) - Introduction
 * [Part 2](https://vasyop.github.io/miniC-hosting/?1) - Expressions (part 1)
 
-## Get [notified](https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform) when new tutorials are released.
+## Get [notified](https://github.us20.list-manage.com/subscribe/post?u=2790571880963241ec5dd7d11&id=0e2d1b34de) when new tutorials are released.
 
 ## Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
 
