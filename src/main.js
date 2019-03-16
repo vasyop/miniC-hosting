@@ -544,7 +544,7 @@ int sum(int n) {
                 h('div', {
                     class:'bot-left-btn',
                     onclick: function () {
-                        window.open('https://docs.google.com/forms/d/e/1FAIpQLSectFtg9jl4zkFZqPnQkSRChNG7-I0qzR3247NRzdmAqEHCZA/viewform', '_blank')
+                        window.open('https://github.us20.list-manage.com/subscribe/post?u=2790571880963241ec5dd7d11&id=0e2d1b34de', '_blank')
                     }
                 },
                     'Get notified when new tutorials are released'
