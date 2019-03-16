@@ -169,6 +169,7 @@ int sum(int n) {
                             const end = error.message.indexOf('at Microsoft.JSInterop')
                             state.isCompilerError = true
                             state.printedVMCode = error.message.substring(18, end)
+                            handleEvent(state, 'compile-failed')
                         }
                     }),
                     onmouseover: lazyHandler(state => handleEvent(state, 'compile-hovered'))
@@ -542,7 +543,7 @@ int sum(int n) {
                     class: 'bot-left-btns' + classIf(getState().emailVisible, ' bot-left-btns-visible')
                 },
                 h('div', {
-                    class:'bot-left-btn',
+                    class: 'bot-left-btn',
                     onclick: function () {
                         window.open('https://github.us20.list-manage.com/subscribe/post?u=2790571880963241ec5dd7d11&id=0e2d1b34de', '_blank')
                     }
@@ -551,7 +552,7 @@ int sum(int n) {
                 ),
 
                 h('div', {
-                    class:'bot-left-btn',
+                    class: 'bot-left-btn',
                     onclick: function () {
                         window.open('https://github.com/vasyop/miniC-hosting/blob/master/support.md', '_blank')
                     }
@@ -785,13 +786,13 @@ int sum(int n) {
                 state.cCode = nextScriptItem.code
                 handleEvent(state, script[state.scriptIndex + 1].type)
             } else if (nextScriptItem.go2nextSection) {
-            
-            	const idx = Number(window.location.search.substr(1)) + 1
-                
-                if(scripts[idx])
-                	location.replace(location.origin + '/miniC-hosting?' + (Number(window.location.search.substr(1)) + 1))
+
+                const idx = Number(window.location.search.substr(1)) + 1
+
+                if (scripts[idx])
+                    location.replace(location.origin + '/miniC-hosting?' + (Number(window.location.search.substr(1)) + 1))
                 else
-                	location.replace('https://github.com/vasyop/miniC-hosting/blob/master/support.md')
+                    location.replace('https://github.com/vasyop/miniC-hosting/blob/master/support.md')
             }
         }
 
@@ -898,6 +899,13 @@ int sum(int n) {
         }
     }
 
+    function onCompileFailed(txt) {
+        return {
+            type: 'compile-failed',
+            txt
+        }
+    }
+
     function onCodeHovered(txt) {
         return {
             type: 'code-hovered',
@@ -950,7 +958,14 @@ int sum(int n) {
     const scripts = [
 
 
-        // part 1
+
+
+
+        // part 1 intro
+
+
+
+
 
         addClickToContinues(flatten([
             onBubble("Oh, hi there!"),
@@ -1005,24 +1020,24 @@ int sum(int n) {
             onFinishedSetHighLightAndAdvance(makeHighLights(3, 4, 5)),
             onFinished(
                 'The 3rd, 4th and 5th columns are parts of the memory of our machine.',
-                'It has 50.000 slots (0 to 49.999) where it can store numbers and we call these slots "addresses".',
+                'It has 50000 slots (0 to 49999) where it can store numbers and we call these slots "addresses".',
                 'The left number is the address of the number and the right is the actual number stored at that address.',
-                'For instance, the number at address 10.006 is 1028.',
+                'For instance, the number at address 10006 is 1028.',
                 'There are also 4 other special slots called "registers" (we will talk about them shortly).',
             ),
-            onChatClicked('The 3rd column shows the memory from 10.000 to 10.024.'),
+            onChatClicked('The 3rd column shows the memory from 10000 to 10024.'),
             onFinishedSetHighLightAndAdvance(makeHighLights(3)),
             onFinished(
-                'When you hit "Compile", the 3 lines of C code were turned into the numbers 1000, 0, 1002, 2...1001, 0 and those numbers were inserted at the addresses 10.000 - 10.010. All the other numbers are 0s (except the registers).',
+                'When you hit "Compile", the 3 lines of C code were turned into the numbers 1000, 0, 1002, 2...1001, 0 and those numbers were inserted at the addresses 10000 - 10010. All the other numbers are 0s (except the registers).',
                 'We say that a "compiler" "compiles" our program, which just means that it checks the code is correct (we will expand on that) and if so, it translates it into numbers.'
             ),
             onChatClicked(
                 'Once you know C, we will look closer at the compiler and write a piece of it. ',
-                'We call the memory section from address 10.000 to the last instruction (10.010 in this case), the "code segment".'
+                'We call the memory section from address 10000 to the last instruction (10010 in this case), the "code segment".'
             ),
             onChatClicked(
                 'How our machine (like most real processors) works is that when we give it the numbers and start it, it checks what number is at a certain memory address and depending on what\'s there, it then changes some other numbers. So many numbers! I know. The number that tells the machine what to do is called an "instruction".',
-                'For instance, there is a "PUSH" instruction at address 10.004. Of course the machine has no idea what a "PUSH" is, it only knows what to do when it sees number 1002.',
+                'For instance, there is a "PUSH" instruction at address 10004. Of course the machine has no idea what a "PUSH" is, it only knows what to do when it sees number 1002.',
             ),
             onChatClicked(
                 'For us though, it\'s easier to read and write "PUSH", "PLUS" or "RET" instead of "1002, 1021, or 1001"',
@@ -1034,19 +1049,19 @@ int sum(int n) {
                 'One of the 4 registers is IP, or the "instruction pointer".',
                 'IP "points" to (holds the address of) the instruction that our machine will execute next.',
             ),
-            onChatClicked('Right now, IP holds the number 10.000, the address of the first instruction generated from our C code.'),
+            onChatClicked('Right now, IP holds the number 10000, the address of the first instruction generated from our C code.'),
             onFinishedSetHighLightAndAdvance(makeHighLights('adr10000')),
             onChatClicked(
                 'The address with a light blue background is always the number held by IP.',
-                'This machine always starts with IP set to 10.000.'
+                'This machine always starts with IP set to 10000.'
             ),
             onChatClicked(' '),
             onFinishedSetHighLightAndAdvance(makeHighLights('adr10007', 'adr10008', 'adr10006')),
             onChatClicked(
                 'There are 20 or so instructions and some of them have "arguments".',
                 'What that means is that right after the instruction there is a number (the argument) that is taken into consideration when the instruction is executed.',
-                'The "RET" instruction is always followed by its argument. The one at address 10.007 has an argument of 0 (found at 10.008).',
-                'The MINUS instruction at 10.006 is immediately followed by the next instruction, because it has no argument.'
+                'The "RET" instruction is always followed by its argument. The one at address 10007 has an argument of 0 (found at 10008).',
+                'The MINUS instruction at 10006 is immediately followed by the next instruction, because it has no argument.'
             ),
             onChatClicked(
                 'After executing an instruction, the machine will increase IP by 2 if the instruction had an argument, or by 1 if it didn\'t.',
@@ -1059,7 +1074,7 @@ int sum(int n) {
             onFinished(
                 'It shows the lines of C code, each followed by the instructions generated from that line.',
                 'Note that, unlike the 3rd column, the arguments go together with the instruction.',
-                'For instance, at address 10.002 on the second column, there is a PUSH 132, and on the next line there\'s address 10.004.',
+                'For instance, at address 10002 on the second column, there is a PUSH 132, and on the next line there\'s address 10004.',
                 'The 2nd column is just a nicer way of representing the 3rd.'
             ),
             onChatClicked(
@@ -1067,11 +1082,11 @@ int sum(int n) {
             ),
             onFinishedSetHighLightAndAdvance(makeHighLights('adr30000')),
             onFinished(
-                'Right now, there are two registers holding the value 30.000, SP (stack pointer) and BP (base pointer). They always start at 30.000 on this machine.',
+                'Right now, there are two registers holding the value 30000, SP (stack pointer) and BP (base pointer). They always start at 30000 on this machine.',
                 'The purple highlights the base pointer and orange highlights the stack pointer (you can\'t clearly see the colors right now because they overlap).'
             ),
             onChatClicked(
-                'We call the memory section from 30.000 to the the value of SP "the stack segment", or simply the "stack".',
+                'We call the memory section from 30000 to the the value of SP "the stack segment", or simply the "stack".',
                 'Almost all the action happens on the stack, so let\'s give it a spin!',
                 '(keep your eye on SP and BP (both at address 30000) and click "Step" to execute the 1st instruction)'
             ),
@@ -1083,12 +1098,12 @@ int sum(int n) {
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
             onFinished(
                 'The machine just executed the first instruction (FSTART) with the argument 0, or FSTART 0 for short.',
-                'IP predictably increased to 10.002 to prepare for the next instruction: PUSH.',
-                'SP and BP both moved to 30.001 and the value 30.000 was written at 30.001.'
+                'IP predictably increased to 10002 to prepare for the next instruction: PUSH.',
+                'SP and BP both moved to 30001 and the value 30000 was written at 30001.'
             ),
             onFinished(
                 'We will cover FSTART in detail later, what we are really interested in now are PUSH and MINUS.',
-                '(keep an eye on SP (at 30.001) and click "Step" to execute the 2nd instruction: PUSH 132)'
+                '(keep an eye on SP (at 30001) and click "Step" to execute the 2nd instruction: PUSH 132)'
             ),
 
 
@@ -1097,10 +1112,10 @@ int sum(int n) {
             onStepClicked(' '),
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
             onFinished(
-                'PUSH 132 was executed. IP increased by 2 and now we see SP was increased by 1 and now points to 30.002.',
-                'Also, the value at SP (30.002) is now 132.',
+                'PUSH 132 was executed. IP increased by 2 and now we see SP was increased by 1 and now points to 30002.',
+                'Also, the value at SP (30002) is now 132.',
                 'The number 132 was "pushed" on to the stack, we say.',
-                '(keep an eye on SP (at 30.002) and click "Step" to execute the 3nd instruction: PUSH 531)'
+                '(keep an eye on SP (at 30002) and click "Step" to execute the 3nd instruction: PUSH 531)'
             ),
 
 
@@ -1119,8 +1134,8 @@ int sum(int n) {
             onStepClicked(' '),
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
             onFinished(
-                'MINUS was executed and the number (531) pointed by SP (30.003) was subtracted from 132 found at address SP-1, then SP was decreased and the result of the subtraction (-399) was stored at the new address where SP points: 30.002.',
-                'Notice 531 is still at 30.003. There is no point in removing it. If we end up PUSHing something later, it will be overwritten anyway.',
+                'MINUS was executed and the number (531) pointed by SP (30003) was subtracted from 132 found at address SP-1, then SP was decreased and the result of the subtraction (-399) was stored at the new address where SP points: 30002.',
+                'Notice 531 is still at 30003. There is no point in removing it. If we end up PUSHing something later, it will be overwritten anyway.',
                 '(click "Step" to execute the next instruction (RET) that will terminate the program)'
             ),
 
@@ -1132,7 +1147,7 @@ int sum(int n) {
             onFinished(
                 'We will cover RET in detail later, but for now, RET will end our program and whatever value is at address SP (-399 in this case) is considered to be the result of the execution.',
                 'By the way, we call the value at address SP the "top of the stack"',
-                'Oh, and choosing numbers like 10.000 (initial IP), 30.000 (initial SP) or 1002 (PUSH) is up to whoever made the machine. It doesn\'t matter too much.'
+                'Oh, and choosing numbers like 10000 (initial IP), 30000 (initial SP) or 1002 (PUSH) is up to whoever made the machine. It doesn\'t matter too much.'
             ),
 
 
@@ -1153,7 +1168,7 @@ int sum(int n) {
 
 
 
-        // part 2
+        // part 2  expressions
 
 
 
@@ -1164,7 +1179,7 @@ int sum(int n) {
         addClickToContinues(flatten([
 
             onBubble('So, are you ready to C more?'),
-            
+
             onFinished('(yes, veery funny)'),
 
             onChatClicked(' '),
@@ -1215,7 +1230,7 @@ int sum(int n) {
             onStepClicked(' '),
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
             onFinished(
-                'After PUSH 5, our expression has been evaluated and SP is indeed at its original value (30.001, before PUSH) plus 1 (30.002, no big surprise there) and the result is on the top of the stack.',
+                'After PUSH 5, our expression has been evaluated and SP is indeed at its original value (30001, before PUSH) plus 1 (30002, no big surprise there) and the result is on the top of the stack.',
             ),
             onChatClicked(
                 'Now, the POP instruction (just decreases SP by 1) is about to be executed. ',
@@ -1237,7 +1252,7 @@ int sum(int n) {
                 'Other compilers might not even compile our code if they don\'t find any "return", but this one is not that strict.'
             ),
             onChatClicked(
-                'When the "RET" instruction is hit, whatever is on the top of the stack at that moment will be returned. In our case, the top of the stack, 30.000, is not a meaningful value for us unless we are writing a virus, which we will, later.',
+                'When the "RET" instruction is hit, whatever is on the top of the stack at that moment will be returned. In our case, the top of the stack, 30000, is not a meaningful value for us unless we are writing a virus, which we will, later.',
             ),
             onFinished('(go on stepping)'),
             onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
@@ -1296,7 +1311,7 @@ int sum(int n) {
             onStepClicked(' '),
             onStepClicked(' '),
             onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
-            onFinished('Again, the result is on the top of the stack, and our evaluation increased SP by 1 (from 30.001 to 30.002).'),
+            onFinished('Again, the result is on the top of the stack, and our evaluation increased SP by 1 (from 30001 to 30002).'),
             onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
             onFinished('(go on stepping)'),
             onStepClicked(' '),
@@ -1381,13 +1396,13 @@ int sum(int n) {
                 'The compiler just uses this precedence table to generate instructions correctly.',
                 'Let\'s see this in action.'
             ),
-            
+
             onFinishedSetCodeAndAdvance(`
 
 int main() {
     3 + 10 / 5 + 7 * 6 / 3 - 11;
 }`),
-onFinished(' '),
+            onFinished(' '),
             onChatClicked(
                 'What should "3 + 10 / 5 + 7 * 6 / 3 - 11" compile to?',
                 'We will use the reverse polish notation along the way and write the instructions at the end.',
@@ -1418,6 +1433,308 @@ onFinished(' '),
                 'We have seen how the compiler uses the reverse polish notation to compile expressions of any size and then how precedence is handled. ',
                 'Next time, we will look at other expressions such as "-(5 + 3) * 2", and then we move on to "variables".'
             ),
+            onChatClickedToNextSection()
+        ])),
+
+
+
+
+
+        // part 3 - finishing expressions 
+
+
+
+
+
+        addClickToContinues(flatten([
+
+            onBubble('Oh, hi there! Glad you made it through.'),
+
+            onChatClicked(
+                'We learned a lot last time. Let\'s do a quick recap.',
+                'First, we saw how the compiler handles expressions by translating them to the reverse polish notation and then to actual instructions.',
+                'An expression like "3 * 5 + 2" is first translated to its reverse polish notation, "3 5 * 2 +".',
+                'From there, each number maps to a PUSH instruction, and each operator to its specific instruction.',
+                'So the expression finally compiles to: PUSH 3, PUSH 5, TIMES, PUSH 2, PLUS".'
+            ),
+
+            onChatClicked(
+                'However, for an expression like "2 + 3 * 5" it\'s not quite as simple as translating to "2 3 + 5 *" and then to "PUSH 2, PUSH 3, PLUS, PUSH 5, TIMES".',
+                'That would mean adding 2 and 3 before multiplying 3 and 5, which we all know is the wrong order.',
+                'Because multiplication has a lower precedence than addition, the compiler recognizes that 3 and 5 should be multiplied first.'
+            ),
+            onChatClicked(
+                'It actually thinks: "First, I will compile "2" (which is just "PUSH 2"), then "3 * 5" (which is just "PUSH 3, PUSH 5, TIMES) and then finish it up with a "PLUS".',
+                'So, the whole expression actually compiles to "PUSH 2, PUSH 3, PUSH 5, TIMES, PLUS".',
+            ),
+
+            onChatClicked(
+                'Expressions are the building blocks of programming languages.',
+                'Every topic that comes after expressions is much easier to grasp conceptually, but it absolutely requires mastering expressions first.',
+                'In this part, we will cover what\'s left of expressions and get ready for the next part: variables.',
+            ),
+
+            onChatClicked(
+                'You may recall from last time that a valid expression is either a number or an expression followed by an operator and then another expression.',
+                'However, it would be handy if we could compute "(2 + 3) * 5". Is this a valid expression?',
+                'Well, yes. Actually, a "(" followed by an expression and then by a ")" is always a valid expression.',
+                'So because "(2 + 3)" is valid, and because putting any operator between two expressions also makes a valid expression, then "(2 + 3) * 5" must also be valid.'
+            ),
+
+            onChatClicked(
+                'As long as we follow the rules above, we can go wild with "(" and ")".',
+                '"((2 + (((3)))) * 5)" is also a valid expression, even though a lot of the parenthesis are redundant.',
+                'It can easily be simplified back to "(2 + 3) * 5". Now the questions is: how are parenthesis compiled?'
+            ),
+
+            onChatClicked(
+                'Let\'s take the expression "2 * (11 + 13 * 15) - 50".',
+                'Now let\'s imagine instead of "(11 + 13 * 15)" there was just its result which we don\'t even have to know, we can can call it X.',
+                'So the expression would just be "2 * X - 50" which is written as "2 X * 50 -" in reverse polish notation and compiled to "PUSH 2, PUSH X, TIMES, PUSH 50, MINUS".',
+                'Now everything the compiler has to do it just replace "PUSH X" with whatever "11 + 13 * 15" compiles to, which is "PUSH 11, PUSH 13, PUSH 15, TIMES, PLUS".',
+                'And it gets "PUSH 2, PUSH 11, PUSH 13, PUSH 15, TIMES, PLUS, TIMES, PUSH 50, MINUS".'
+            ),
+
+            onChatClicked(
+                'Let\'s quickly compile it just to make sure."',
+            ),
+
+
+
+            onFinishedChangeLockAndAdvance(makeLock(true, false, true, true)),
+            onFinishedSetCodeAndAdvance(`int main() {
+    2 * (11 + 13 * 15) - 50;
+}`),
+            onFinished('(click "Compile" to continue)'),
+            onCompileClicked('And that is exactly what we expected.'),
+
+
+
+            onChatClicked(
+                'But can we always just replace "PUSH X" with whatever the expression inside the parenthesis (without breaking anything)?'
+            ),
+
+            onChatClicked(
+                'Well, last time we made an important point.',
+                'The instructions we get from compiling an expression are, as far as the stack (which is the only thing we care when evaluating expressions) is concerned, equivalent with the instruction "PUSH X", where X simply the number that the expression evaluates to.',
+                'They are equivalent in the sense that no matter if "PUSH X" or the actual instructions get executed, SP will increase by 1 and the result will be on the top of the stack.'
+            ),
+
+            onChatClicked(
+                'Generally speaking, evaluating any expression just ends up pushing its result on to the stack.',
+                'So a set of instructions that evaluate an expression, can always be replaced by another set of instructions that evaluate another expression without any fear of breaking anything.',
+                'This is good news for the complier because it can always just replace "PUSH X" with whatever the expression inside the parenthesis compiles to.',
+                'And this is why it never worries about us going wild with "(" and ")".'
+            ),
+
+            onChatClicked(
+                'And that\'s all about "(" and ")", nothing complicated going on.',
+                'Just don\'t forget ")" if you previously wrote "(".',
+                'What happens if we do forget? Let\'s try and compile the invalid expression "3 * (5 / (7 + 12)" (the "(" before 5 is never closed).'
+            ),
+
+
+
+            onFinishedSetCodeAndAdvance(`int main() {
+    3 * (5 / (7 + 12);
+}`),
+            onFinished('(click "Compile" to continue)'),
+            onCompileFailed('Oops. We haven\'t seen that one before.'),
+
+
+
+            onChatClicked(
+                'The compiler yells at us: ',
+                '"parsing error: unexpected token: ;, line 1, column 28"',
+                '"Expected CloseParenthesis"',
+                'It likes this kind of technical language like most compilers do, but what it means by that is:',
+                '"I was reading your code and got to line 1, column 28. You put a ";" there (which marks the end of the expression) but you can\'t end the expression before adding a CloseParenthesis (a ")" symbol).',
+            ),
+
+            onChatClicked(
+                'Note that CloseParenthesis is just a suggestion, it doesn\'t mean that ")" is the only valid symbol that we can end the expression with. We might as well add " + 5)" and we would get a valid expression: "3 * (5 / (7 + 12) + 5)".'
+            ),
+
+            onChatClicked(
+                'Now there is one thing you may have asked yourself by now... Aren\'t negative numbers valid too?',
+                'What if we wanted to "return -2;"? Surely there must be a simpler way than something like "return 4 - 2;"',
+                'Well, "-2" is actually a valid expression. Let\'s see what is compiles to.'),
+
+
+
+
+            onFinishedSetCodeAndAdvance(`int main() {
+    -2;
+}`),
+            onFinished('(click "Compile" to continue)'),
+            onCompileClicked('Hmm, we haven\'t seen the OPP instruction before.'),
+
+
+
+
+            onChatClicked(
+                'OPP just multiplies the top of the stack with -1, effectively negating that number.',
+                'Actually, we can write "-" before any expression and we get a valid expression, like in "-2 * 5".',
+                'Because "-2" is itself an expression, we could even write another "-" (or many more) before it.'
+            ),
+
+            onChatClicked(
+                '"----32 * -(2 + 3)" is also a valid expression. What do you expect it to compile to?',
+                'Let\'s reason about it. We already know "32 * (2 + 3)" compiles to "PUSH 32, PUSH 2, PUSH 3, PLUS, TIMES", but what about all those minuses ?',
+                'Well, a "-" before an expression (we call it "infix -") will generate an OPP instruction just after the expression that comes after.',
+                'In "-(2 + 3)" for instance, the OPP will come after PLUS, which is the last instruction generated from "(2 + 3)".'),
+
+            onChatClicked(
+                'So let\'s get back to "----32 * -(2 + 3)".',
+                'Following the rules above, those first 4 minuses should generate 4 OPPs right after 32, and the "-" before "(" should generate an OPP right the last instruction of the ,expression "2 + 3", which is PLUS.',
+                'So we expect "PUSH 32, OPP, OPP, OPP, OPP PUSH 2, PUSH 3, PLUS, OPP, TIMES"',
+                'Let\'s quickly compile that to check our reasoning.'
+            ),
+
+
+
+            onFinishedSetCodeAndAdvance(`int main() {
+    ----32 * -(2 + 3);
+}`),
+            onFinished('(click "Compile" to continue)'),
+            onCompileClicked('Yup, no magic tricks. Of course 4 OPPs in a row are useless, but there are other infix operators which we will learn shortly and it\'s important to know that you can put as many as you like behind an expression and it\'s still valid.'
+            ),
+
+
+
+            onChatClicked(
+                'And that\'s all about infix -, there is nothing really special about it.',
+                'If we take any expression, we know that evaluating it is equivalent to pushing the result on to the stack.',
+                'And if there was a "-" before it in in the C code, there would also be an OPP instruction at the end, and that OPP would just change the sign of the value on the top of the stack.',
+                'So by putting a "-" before any expression, evaluating its instructions would still end up pushing the result on to the stack, just like any other type of expression.'
+            ),
+
+
+            onChatClicked(
+                'Before ending this part, there are a couple of things to clarify...'
+            ),
+
+            onChatClicked(
+                'Unlike standard C, this machine and compiler to not work with with fractional numbers.',
+                '2.5 is not a valid number here, but 2 is. That\'s because 2 is a whole number (or an "integer").',
+                'Actually, fractional (or "floating point") numbers are so special that other machines have a whole subset of instructions made just for them.',
+                'It\'s not really worth covering instructions like PLUSF which behave just like PLUS but with floating point numbers instead.'
+            ),
+
+            onChatClicked(
+                'The reason different instructions are needed for floating point numbers will become clear in a later chapter, after we talk about bits and bytes.'
+            ),
+
+            onChatClicked(
+                'Hmm. If there are no floating point numbers, what does "5 / 2" evaluate to ?',
+                'Let\'s quickly check!'
+            ),
+
+            onFinishedChangeLockAndAdvance(makeLock(true, false, true, true)),
+            onFinishedSetCodeAndAdvance(`int main() {
+    return 5 / 2;
+}`),
+            onFinished('(click "Compile" to continue)'),
+            onCompileClicked('Ok, now let\'s step through it.'),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, false, true)),
+            onFinished(''),
+            onStepClicked(''),
+            onStepClicked(''),
+            onStepClicked('And now for the moment of truth...(go on stepping)'),
+            onStepClicked('Oh. Instead of the expected 2.5, we get the "truncated" result, 2.'),
+            onFinishedChangeLockAndAdvance(makeLock(true, true, true, true)),
+
+
+
+            onChatClicked(
+                'This is standard behavior for integers in C and all major programming languages.',
+                'This behavior might seem annoying, but it actually has quite a few use cases. We will see one of them in the next part.'
+            ),
+
+            onChatClicked(
+                'If we ever want to get the remainder of 5 / 2 we can always use the "%" ("modulus", or "mod") operator. "5 % 2" will evaluate to 1.',
+                '% has the same precedence as * and /, so in "1 + 5 % 2", "5 % 2" is evaluated first to 1 and then 1 + 1 = 2 is the final result.'
+            ),
+
+            onChatClicked(
+                'There are a few more operators which we will introduce throughout the rest of these tutorials (like "||", "&&" or "<").',
+                'Their coresponding instructions will compute the result differently (otherwise there is no point) and they might have a different precedence levels.',
+                'Other than that, they behave just like * or +.'
+            ),
+
+
+            onChatClicked(
+                'Oh and one more thing...',
+                'Expressions in other "stack-based" machines (machines that use the stack to evaluate expression, like Jasmine behind Java) work as described up until this point, but it is important to note that expressions can also be evaluated using registers.',
+                'For instance, your CPU is a "register-based machine", the main difference being that it has more registers (not just IP, BP and SP...) and they are what is used to evaluate expressions.'
+            ),
+
+            onChatClicked(
+                'For the expression "5 + 3 * 2", the compiler for a register machine must be smart enough to figure out number "5" goes in some register A and then the two other registers B and C can be used to evaluate "3 * 2", and only then the "2" in A and the result "8" in B are used to compute the final result.',
+                'Register machines also have the problem of "register allocation".',
+                'There is enough space for the stack to get really big, but there can only be a handful of registers, because they are very expensive to make.',
+                'If the expression is really long and registers are not enough, the stack will have to be used at some point.'
+            ),
+
+            onChatClicked(
+                'But why go through all this trouble and not just use the stack in the first place?',
+                'Here\'s the catch: Registers (on Intel CPUs, at least) are always faster than the stack because they are built on to the CPU, but the stack is actually in RAM.',
+                'This is why smart compilers that produce x86 instructions (that Intel CPUs understand) for example, try really hard to use the registers wisely.',
+            ),
+
+            onChatClicked(
+                'For our machine however, compiling "5 + 3 * 2" will result in 3 PUSH instructions in a row.'
+            ),
+            onFinishedSetHighLightAndAdvance(makeHighLights('adr10002', 'adr10004', 'adr10006')),
+            onFinishedSetCodeAndAdvance(`int main() {
+    return 5 + 3 * 2;
+}`),
+            onFinishedCompileAndWrite('Which means SP will reach 10004.'),
+
+
+            onChatClicked('But for "3 * 2 + 5", even though the result is the same, things are different.'),
+            onFinishedSetHighLightAndAdvance(makeHighLights('adr10002', 'adr10004', 'adr10007')),
+            onFinishedSetCodeAndAdvance(`int main() {
+    return 3 * 2 + 5;
+}`),
+            onFinishedCompileAndWrite('Because there is a TIMES immediately after PUSH 3, PUSH 2, SP will only reach 10003, so less space is used to evaluate the expression.'),
+
+            onFinished(
+                'A compiler may sometimes spin expressions around like that if the resulting expression is equivalent.',
+                'This idea becomes very important in register machines where the number of registers is limited.',
+                'Moreover, in x86, the TIMES (called IMUL) and PLUS (called ADD) instructions work a bit differently because they use registers.'
+            ),
+
+            onChatClicked(
+                'Here is some x86 (instructions with more than one argument are common in x86):',
+                ' ',
+                'MOV  EAX 3  (puts 3 in register EAX)',
+                'IMUL EAX 2  (multiplies what is in EAX with 2)',
+                'ADD  EAX 5  (add 5 to what is in EAX)',
+                ' ',
+                'So, with x86 instructions, the same expression can be evaluated using a single register.'
+            ),
+
+            onChatClicked(
+                'OK, now we are really done with expressions.',
+                'Let\'s quickly recap what are the key takeaways.'
+            ),
+
+            onChatClicked(
+                '1. There are a handful of rules that describe what a valid expression can look like: it can be a number, an expression followed by an operator and then another expression, a "(" followed by an expression and then ")", or a "-" followed by an expression.',
+                '2. Expressions can be compiled following some basic rules such as the reverse polish notation (which is specific to stack-based machines).'
+            ),
+
+            onChatClicked(
+                '3. Expressions can get infinitely big, the only limitation is the stack size when evaluating them.',
+                '4. All operators such as + or % follow the same rules, the only difference is their precedence level and what operation they perform (adding for +, getting the remainder of the division for %). We will introduce new operators along the way, so it\'s important to know that all operators have a language-specific precedence level that you can check whenever you are unsure of the order in which is an expression evaluated.'
+            ),
+
+            onChatClicked(
+                'Remember that expressions are the building blocks of programming languages. Understand them and everything else is a piece of cake.',
+                'Next time we will move on to variables and talk about program structure.'
+            ),
+
             onChatClickedToNextSection()
         ]))
     ]
