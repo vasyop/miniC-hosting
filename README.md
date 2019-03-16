@@ -33,6 +33,7 @@ I am not covering unnecessary details, those are easy to look up.
 Tutorial (for people with 0 programming experience or willing to learn C) : 
 * [Part 1](https://vasyop.github.io/miniC-hosting/?0) - Introduction
 * [Part 2](https://vasyop.github.io/miniC-hosting/?1) - Expressions (part 1)
+* [Part 3](https://vasyop.github.io/miniC-hosting/?2) - Expressions (part 2)
 
 ## Get [notified](https://github.us20.list-manage.com/subscribe/post?u=2790571880963241ec5dd7d11&id=0e2d1b34de) when new tutorials are released.
 
