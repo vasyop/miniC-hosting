@@ -2,10 +2,9 @@
 
 1. A simple stack-based virtual machine that runs C (missing features below) in the browser.
 
-2. The beginning of an interactive tutorial that covers C, how the VM works, and how the language is compiled.
+2. The beginning of an interactive tutorial that covers C, how the VM works, and how the language is compiled, everything from the ground up. 
 
-3. This project is made as an experiment to see if C can be learned easier if the lower level is covered in parallel.
-My current goal is to release a series of tutorials that teach C from the ground up, without having to take anything for granted.
+![Stack](https://i.imgur.com/g5ZTRIH.mp4)
 
 ## Why?
 
@@ -28,23 +27,25 @@ I am not covering unnecessary details, those are easy to look up.
 
 ## Can I see it?
 
-[Sandbox](https://vasyop.github.io/miniC-hosting).
+1. [Sandbox](https://vasyop.github.io/miniC-hosting)
 
-Tutorial (for people with 0 programming experience or willing to learn C) : 
-* [Part 1](https://vasyop.github.io/miniC-hosting/?0) - Introduction
-* [Part 2](https://vasyop.github.io/miniC-hosting/?1) - Expressions (part 1)
-* [Part 3](https://vasyop.github.io/miniC-hosting/?2) - Expressions (part 2)
+2. Tutorial (for people with 0 programming experience or willing to learn C) : 
+    * [Part 1](https://vasyop.github.io/miniC-hosting/?0) - Introduction
+    * [Part 2](https://vasyop.github.io/miniC-hosting/?1) - Expressions (part 1)
+    * [Part 3](https://vasyop.github.io/miniC-hosting/?2) - Expressions (part 2)
 
-## Get [notified](https://github.us20.list-manage.com/subscribe/post?u=2790571880963241ec5dd7d11&id=0e2d1b34de) when new tutorials are released.
+## Subscribe
 
-## Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
+Get [notified](https://github.us20.list-manage.com/subscribe/post?u=2790571880963241ec5dd7d11&id=0e2d1b34de) when new tutorials are released.
 
-## [Staring](https://github.com/vasyop/miniC-hosting) this on github helps.
+## Feedback
 
-## Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project
+Join the discussion on our [subreddit](https://www.reddit.com/r/minic/).
 
+## Support
+Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project.
 
-### Missing language features
+## Missing language features
 
 * operator new is working (like in C++), no malloc
 
