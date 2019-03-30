@@ -4,6 +4,8 @@
 
 2. The beginning of an interactive tutorial that covers C, how the VM works, and how the language is compiled, everything from the ground up. 
 
+![Stack](https://i.imgur.com/g5ZTRIH.mp4)
+
 ## Why?
 
 7 years ago I was writing my very first line of code.
