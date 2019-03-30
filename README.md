@@ -45,30 +45,36 @@ Join the discussion on our [subreddit](https://www.reddit.com/r/minic/).
 ## Support
 Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project.
 
-## Missing language features
+## Documentation
 
-* operator new is working (like in C++), no malloc
+### Virtual Instruction Set
 
-* static arrays and structs (dynamic arrays and pointer to structs work fine).
-  
-* Arrays of structs (arrays of pointers to structs works fine).
-  
-* for, switch statements
 
-* preprocessor directives
-  
-* bit operators
-  
-* only bool,int,char as primitive types and they all have the same size in memory
-  
-* ++,--,ternary
-  
-* union,enum
-  
-* global variables
-  
-* macros
 
-* delete / delete[]
+### Missing language features
 
-* function overloading
+* only bool, int, char and pointers as data types and they all have the same size in memory
+
+* no malloc, but operator new is working (like in C++), 
+
+* no static arrays and structs (dynamic arrays and pointer to structs work fine).
+  
+* no arrays of structs (arrays of pointers to structs works fine).
+  
+* no for and switch statements
+
+* no preprocessor directives
+  
+* no bitwise operators
+  
+* no ++, --, ternary operators
+  
+* no union and no enum
+  
+* no global variables
+
+* no functino pointers
+
+* no free / delete operator
+
+* no function overloading
