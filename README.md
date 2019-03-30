@@ -35,14 +35,13 @@ Tutorial (for people with 0 programming experience or willing to learn C) :
 * [Part 2](https://vasyop.github.io/miniC-hosting/?1) - Expressions (part 1)
 * [Part 3](https://vasyop.github.io/miniC-hosting/?2) - Expressions (part 2)
 
-## Get [notified](https://github.us20.list-manage.com/subscribe/post?u=2790571880963241ec5dd7d11&id=0e2d1b34de) when new tutorials are released.
+## Subscribe
 
-## Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
+Get **[notified](https://github.us20.list-manage.com/subscribe/post?u=2790571880963241ec5dd7d11&id=0e2d1b34de)** when new tutorials are released.
 
-## [Staring](https://github.com/vasyop/miniC-hosting) this on github helps.
+## Feedback
 
-## Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md) the project
-
+Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
 
 ### Missing language features
 
@@ -71,3 +70,6 @@ Tutorial (for people with 0 programming experience or willing to learn C) :
 * delete / delete[]
 
 * function overloading
+
+## Support
+Consider **[supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md)** the project
