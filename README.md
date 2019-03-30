@@ -43,7 +43,10 @@ Get **[notified](https://github.us20.list-manage.com/subscribe/post?u=2790571880
 
 Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
 
-### Missing language features
+## Support
+Consider **[supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md)** the project
+
+## Missing language features
 
 * operator new is working (like in C++), no malloc
 
@@ -70,6 +73,3 @@ Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
 * delete / delete[]
 
 * function overloading
-
-## Support
-Consider **[supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md)** the project
