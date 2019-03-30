@@ -73,7 +73,7 @@ Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/suppor
   
 * no global variables
 
-* no functino pointers
+* no function pointers
 
 * no free / delete operator
 
