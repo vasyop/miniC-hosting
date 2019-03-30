@@ -28,7 +28,7 @@ I am not covering unnecessary details, those are easy to look up.
 
 ## Can I see it?
 
-**[Sandbox](https://vasyop.github.io/miniC-hosting)**
+[Sandbox](https://vasyop.github.io/miniC-hosting)**
 
 Tutorial (for people with 0 programming experience or willing to learn C) : 
 * [Part 1](https://vasyop.github.io/miniC-hosting/?0) - Introduction
@@ -37,14 +37,14 @@ Tutorial (for people with 0 programming experience or willing to learn C) :
 
 ## Subscribe
 
-Get **[notified](https://github.us20.list-manage.com/subscribe/post?u=2790571880963241ec5dd7d11&id=0e2d1b34de)** when new tutorials are released.
+Get [notified](https://github.us20.list-manage.com/subscribe/post?u=2790571880963241ec5dd7d11&id=0e2d1b34de)** when new tutorials are released.
 
 ## Feedback
 
-Join the discussion on our **[subreddit](https://www.reddit.com/r/minic/)**.
+Join the discussion on our [subreddit](https://www.reddit.com/r/minic/)**.
 
 ## Support
-Consider **[supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md)** the project.
+Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/support.md)** the project.
 
 ## Missing language features
 
