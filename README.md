@@ -2,7 +2,7 @@
 
 1. A simple stack-based virtual machine that runs C in the browser.
 
-2. The beginning of an interactive tutorial that covers C, how the VM works, and how the language is compiled, everything from the ground up.
+2. An interactive tutorial that covers C, how the VM works, and how the language is compiled, everything from the ground up.
 
 ![alt text](/gif/both.gif)
 
