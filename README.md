@@ -33,6 +33,7 @@ I am not covering unnecessary details, those are easy to look up.
     * [Part 1](https://vasyop.github.io/miniC-hosting/?0) - Introduction
     * [Part 2](https://vasyop.github.io/miniC-hosting/?1) - Expressions (part 1)
     * [Part 3](https://vasyop.github.io/miniC-hosting/?2) - Expressions (part 2)
+    * [Part 4](https://vasyop.github.io/miniC-hosting/?3) - Variables and program structure
 
 ## Subscribe
 
