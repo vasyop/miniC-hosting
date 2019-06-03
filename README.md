@@ -6,7 +6,7 @@
 
 ## Why?
 
-This project hopes to demystify compilers without getting lost in unnecessary details. 
+This project demystifies compilers without getting lost in unnecessary details. 
 MiniC visually explores how a compiler can break down the C language into simple instructions and how those are executed by a virtual CPU. 
 
 ![alt text](/gif/both.gif)
