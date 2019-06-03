@@ -4,26 +4,12 @@
 
 2. An interactive tutorial that covers C, how the VM works, and how the language is compiled, everything from the ground up.
 
-![alt text](/gif/both.gif)
-
 ## Why?
 
-7 years ago I was writing my very first line of code.
+This project hopes to demystify compilers without getting lost in unnecessary details. 
+MiniC visually explores how a compiler can break down the C language into simple instructions and how those are executed by a virtual CPU. 
 
-I knew I liked programming, but I didn't really know what I was doing. 
-What's going on?
-Why do I have to write this?
-What's happening under the hood?
-I was frustrated and confused.
-I've always hated learning things by heart without really understanding them.
-
-For years I had wished someone could break programming down and teach it from the groud up, concepts first, details later. 
-If someone could answer my "why?" questions, everything would be much easier to learn.
-
-With this project, I want to teach programming one step at a time, from the very ground up.
-
-And no, it's not going to take forever. 
-I am not covering unnecessary details, those are easy to look up.
+![alt text](/gif/both.gif)
 
 ## Can I see it?
 
