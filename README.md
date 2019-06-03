@@ -39,7 +39,7 @@ Consider [supporting](https://github.com/vasyop/miniC-hosting/blob/master/suppor
 Note: BEFORE each instrunction, IP is increased by 1
 
 PUSH 
-* increases SP by 1 and sets the value at SP to the argument ("Pushes the argument on to the stack")
+* increases SP by 1 and sets the value at SP to the argument ("Pushes the argument onto the stack")
 
 LEA: 
 * similar to PUSH
