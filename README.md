@@ -137,11 +137,11 @@ MINUS:
 
 NOT:
 * ...
-* is used to compile "!<expression>"
+* is used to compile "!*expression*"
 
 OPP:
 * ...
-* is used to compile "-" in "-<expression>" ("OPPosite")
+* is used to compile "-" in "-*expression*" ("OPPosite")
 
 EQ, NE, LT, GT, LTE, GTE, AND, OR: 
 * ...
