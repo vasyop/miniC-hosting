@@ -135,6 +135,20 @@ PLUS:
 MINUS:
 * POPs the two values on the top of the stack, substracts them, and pushes the result (e.g. 6 - 3)
 
+NOT:
+* ...
+* is used to compile "!<expression>"
+
+OPP:
+* ...
+* is used to compile "-" in "-<expression>" ("OPPosite")
+
+EQ, NE, LT, GT, LTE, GTE, AND, OR: 
+* ...
+* are used to compile ==, !=, <, >, <=, >=, &&, || (e.g. "a < 3 || b == 5")
+
+
+
 ### Missing language features
 
 * only bool, int, char and pointers as data types and they all have the same size in memory
